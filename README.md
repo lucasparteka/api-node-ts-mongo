@@ -4,7 +4,7 @@
 
 Este é um desafio para testar seus conhecimentos de Front-end;
 
-O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando o Framework sugerido na vaga aplicada.
+O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando os Frameworks sugeridos na vaga aplicada.
 
 ## Case
 
@@ -13,57 +13,78 @@ O seu objetivo nesse projeto, é trabalhar no desenvolvimento da plataforma da e
 
 ## Recursos
 
-1. Estudar a documentação da REST API: https://randomuser.me/documentation
+1. Desenvolver REST API importando os dados do projeto: https://randomuser.me/documentation
 2. Utilizar Frameworks CSS, recomendamos alguns como:
 
-      - Tailwind CSS: https://tailwindcss.com/
-      - Material UI: https://material-ui.com/
-      - Angular Material: https://material.angular.io/
-      - Bootstrap: https://getbootstrap.com/
-      - Bulma: https://bulma.io/
+    - Tailwind CSS: https://tailwindcss.com/
+    - Material UI: https://material-ui.com/
+    - Angular Material: https://material.angular.io/
+    - Bootstrap: https://getbootstrap.com/
+    - Bulma: https://bulma.io/
 
 3. Trabalhar em um [FORK](https://lab.coodesh.com/help/gitlab-basics/fork-project.md) deste repositório em seu usuário;
 
 
-## Lista de Pacientes
+## API / Back-End
+
+### Modelo de Dados:
+
+Para a definição do modelo, consultar o arquivo [users.json](./users.json) que foi exportado do Open Food Facts.
+
+### Importar Dados:
+
+Antes de seguir com o desafio, devemos exportar uma lista de produtos da base do [Random User](hhttps://randomuser.me/documentation#format)
+
+Escolher o formato que seja mais cômodo para criar um script que importará todos os dados para a Base de Dados, o Random User tem os seguintes formatos:
+
+- JSON (default)
+- PrettyJSON or pretty
+- CSV
+- YAML
+- XML
+
+Nesse passo o importante é desenvolver um código que consiga processar o arquivo e subir toda a informação no banco de dados para realizar futuros testes dos endpoints da REST API.
+
+### REST API
+
+Para desenvolver a API, antes precisamos definir o Framework para trabalhar, para isso revisar na vaga a tecnologia de Back-end obrigatória. Em caso de ter duas stacks, utilizar a de preferência.
+
+Detalhes para desenvolver a REST API:
+
+- Nós ainda não temos o Banco de Dados! Então precisamos que você implemente e configure a criação do Banco de Dados com base no model.
+
+- Criar os endpoints:
+   - `GET /`: Retornar uma mensagem "REST Fullstack Challenge 20201209 Running"
+   - `PUT /users/:userId`: Será responsável por receber atualizações realizadas no Projeto Web
+   - `DELETE /users/:userId`: Remover o user da base
+   - `GET /users/:userId`: Obter a informação somente de um user da base de dados
+   - `GET /users`: Listar todos os usuários da base de dados
+- Integrar a API com o banco de dados solicitado para persistir os dados
+
+### Extras
+
+- **Diferencial 1** Escrever Unit Test para o endpoint `POST /users`
+- **Diferencial 2** Executar o projeto usando Docker
+- **Diferencial 3** Escrever um esquema de segurança utilizando `API KEY` nos endpoints. Ref: https://learning.postman.com/docs/sending-requests/authorization/#api-key
+- **Diferencial 4** Descrever a documentação da API utilizando o conceito de Open API 3.0;
+
+
+## Front-end:
+
+### Lista de Pacientes
 
 A tela inicial do projeto será um lista de pacientes que deverá conter um buscador para facilitar filtrar todos os que são exibidos na lista, proposta de tela:
 
 ![List users](assets/list.png)
 
-Para obter os dados, utilizaremos a API do Random User:
-
-- https://randomuser.me/api/
-
-Exemplo da resposta:
-
-```json
-{
-   "results": [
-       {
-           "gender": "female",
-           "name": {
-               "title": "Ms",
-               "first": "Alea",
-               "last": "Christoffersen"
-           }
-       }
-   ],
-   "info": {
-       "seed": "2f10116f1799d353",
-       "results": 1,
-       "page": 1,
-       "version": "1.3"
-   }
-}
-```
+Para obter os dados, utilizaremos a REST API desenvolvida.
 
 Além de realizar a request, devemos aplicar alguns filtros na API:
 
 - Limitar em 50 resultados por request
 - Adicionar o parâmetro de paginação para controlar o `Loading more`
 
-### Visualizar paciente
+### Visualizar paciente / Editar
 
 Na coluna de ações da tabela, existe o botão visualizar para expandir os dados dos pacientes. Seguir o modelo proposto:
 
@@ -81,7 +102,7 @@ Devemos exibir os seguintes campos do paciente:
 - Endereço
 - ID (Número de identificação)
 
-## Extras
+### Extras
 
 Além do desafio proposto com as duas telas, temos alguns diferenciais:
 
