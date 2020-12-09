@@ -29,25 +29,29 @@ O seu objetivo nesse projeto, é trabalhar no desenvolvimento da plataforma da e
 
 ### Modelo de Dados:
 
-Para a definição do modelo, consultar o arquivo [users.json](./users.json) que foi exportado do Open Food Facts.
+Para a definição do modelo, consultar o arquivo [model.json](model.json) com os campos a serem trabalhados.
 
 ### Importar Dados:
 
-Antes de seguir com o desafio, devemos exportar uma lista de produtos da base do [Random User](hhttps://randomuser.me/documentation#format)
+Antes de seguir com o desafio, devemos importar a lista de usuarios do arquivo [users.json](users.json), o arquivo contem 500 registros no seguinte formato:
 
-Escolher o formato que seja mais cômodo para criar um script que importará todos os dados para a Base de Dados, o Random User tem os seguintes formatos:
-
-- JSON (default)
-- PrettyJSON or pretty
-- CSV
-- YAML
-- XML
-
-Nesse passo o importante é desenvolver um código que consiga processar o arquivo e subir toda a informação no banco de dados para realizar futuros testes dos endpoints da REST API.
+```json
+{
+   "results": [
+       {}
+   ],
+   "info": {
+       "seed": "2f10116f1799d353",
+       "results": 500,
+       "page": 1,
+       "version": "1.3"
+   }
+}
+```
 
 ### REST API
 
-Para desenvolver a API, antes precisamos definir o Framework para trabalhar, para isso revisar na vaga a tecnologia de Back-end obrigatória. Em caso de ter duas stacks, utilizar a de preferência.
+Para desenvolver a API, precisamos definir o Framework para trabalhar, para isso revisar na vaga a tecnologia de Back-end obrigatória. Em caso de ter duas stacks, utilizar a de preferência.
 
 Detalhes para desenvolver a REST API:
 
@@ -63,11 +67,10 @@ Detalhes para desenvolver a REST API:
 
 ### Extras
 
-- **Diferencial 1** Escrever Unit Test para o endpoint `POST /users`
+- **Diferencial 1** Escrever Unit Test nos endpoints
 - **Diferencial 2** Executar o projeto usando Docker
 - **Diferencial 3** Escrever um esquema de segurança utilizando `API KEY` nos endpoints. Ref: https://learning.postman.com/docs/sending-requests/authorization/#api-key
 - **Diferencial 4** Descrever a documentação da API utilizando o conceito de Open API 3.0;
-
 
 ## Front-end:
 
