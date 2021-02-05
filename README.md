@@ -2,7 +2,7 @@
 
 ## Introdução
 
-Este é um desafio para testar seus conhecimentos de Front-end;
+Este é um desafio para testar seus conhecimentos de Full stack;
 
 O objetivo é avaliar a sua forma de estruturação e autonomia em decisões para construir algo escalável utilizando os Frameworks sugeridos na vaga aplicada.
 
